@@ -4,20 +4,20 @@ class FancyInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = { text: '' };
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
-  handleInputChange(e) {
+  onChange(e) {
     let newText = e.target.value;
     this.setState({text: newText});
   }
 
   render() {
-    let spanClass = (this.props.stamp) ? "stamp" : "placeholder";
+    let spanClass = (this.state.text) ? "stamp" : "placeholder";
     return (
       <div className="fancy-input">
-          <input type="text" value={this.state.text} onChange={this.handleInputChange}/>
-          <span className={spanClass} >{spanClass}</span>
+          <input type="text" value={this.state.text} onChange={this.onChange}/>
+          <span className={spanClass} >{this.props.placeholder}</span>
       </div>
     );
   }

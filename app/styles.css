@@ -22,6 +22,8 @@ html, body {
 
   color: gray;
   font-size: 16px;
+
+  transition: 0.3s ease-in-out;
 }
 
 .fancy-input .stamp {
@@ -33,4 +35,6 @@ html, body {
   color: blue;
   font-size: 10px;
   font-weight: bold;
+
+  transition: 0.3s ease-in-out;
 }
