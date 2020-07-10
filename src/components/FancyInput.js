@@ -1,32 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 
-class FancyInput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: "" };
-    this.handleInputChange = this.handleInputChange.bind(this);
+function FancyInput(props) {
+  const  [text, changeText] = useState("");
+
+  const handleInputChange = e => {
+    const newText = e.target.value;
+    changeText(newText);
   }
 
-  handleInputChange(e) {
-    let newText = e.target.value;
-    this.setState({ text: newText });
-  }
 
-  render() {
-    let spanClass = this.state.text ? "stamp" : "placeholder";
-    return (
-      <div className="fancy-input">
-        <input
-          type="text"
-          value={this.state.text}
-          onChange={this.handleInputChange}
-        />
-        <span className={spanClass}>
-          {this.props.placeholder}
-        </span>
-      </div>
-    );
-  }
+  const spanClass = text ? "stamp" : "placeholder";
+  return (
+    <div className="fancy-input">
+      <input
+        type="text"
+        value={text}
+        onChange={handleInputChange}
+      />
+      <span className={spanClass}>
+        {props.placeholder}
+      </span>
+    </div>
+  );
 }
 
 export default FancyInput;
