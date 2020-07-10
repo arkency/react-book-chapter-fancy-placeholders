@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 function FancyInput(props) {
-  const  [text, changeText] = useState("");
+  const [text, changeText] = useState("");
 
   const handleInputChange = e => {
     const newText = e.target.value;
